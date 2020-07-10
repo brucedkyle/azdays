@@ -24,6 +24,6 @@ steps:
     location: 'West US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'samplelinkedtemplate/azuredeploy.json'
-    overrideParameters: '-projectName pipelinesample -linkedTemplateUri https://raw.githubusercontent.com/brucedkyle/azdays/master/samplelinkedtemplate/linkedStorageAccount.json'
+    overrideParameters: '-projectName armpipe0710 -linkedTemplateUri https://raw.githubusercontent.com/brucedkyle/azdays/master/samplelinkedtemplate/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
   displayName: 'Run a multi-line script'
