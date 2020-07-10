@@ -11,16 +11,17 @@ pool:
 
 steps:
 - script: 
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'pipelinesample-service'
+    azureResourceManagerConnection: 'Azure subscription 1(9f241d6e-16e2-4b2b-a485-cc546f04799b)'
     subscriptionId: '9f241d6e-16e2-4b2b-a485-cc546f04799b'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'rg-wus2-dev-expert'
     location: 'West US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'samplelinkedtemplate/azuredeploy.json'
-    overrideParameters: '-projectName armpipe0710 -linkedTemplateUri https://raw.githubusercontent.com/brucedkyle/azdays/master/samplelinkedtemplate/linkedStorageAccount.json'
+    overrideParameters: '-projectName pipe0710 -linkedTemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
-  displayName: 'Run a multi-line script'
+    deploymentName: 'DeployPipelineTemplate-0710a'
