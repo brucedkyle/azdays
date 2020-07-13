@@ -9,8 +9,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- name: projectName
+  value: pipe0713 
+
 steps:
-- script: 
+- script: |
+    echo ${{ variables.projectName }}
 
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
@@ -22,6 +27,6 @@ steps:
     location: 'West US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'samplelinkedtemplate/azuredeploy.json'
-    overrideParameters: '-projectName pipe0710 -linkedTemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json'
+    overrideParameters: '-projectName ${{ variables.projectName }} -linkedTemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate-0710a'
